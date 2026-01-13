@@ -57,11 +57,13 @@ void part1() {
   // and stores the addresses of x and y, respectively,
   // into them.
   int *p = &x, *q = &y;
-  printf("p = %p\nq = %p\n", p, q);
+  printf("p = %p\nq = %p\n", (void *)p, (void *)q);
 
   // Q1: The following line is an example. Feel free to
   // copy and/or modify it as needed for part 1 of this lab.
-  printf("x & x = %i\n %x", x & x, &x);
+  // printf("x & x = %i\n %x", x & x, &x);
+  printf("x & x = %i\n", x & x);
+  printf("&x = %p\n", (void *)&x);
 }
 
 // HELPER FUNCTION - fillArray()
