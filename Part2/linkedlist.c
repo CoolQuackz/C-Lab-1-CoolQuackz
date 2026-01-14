@@ -68,6 +68,7 @@ int insert_end(struct list *l, int val)
   {
     n->prev = l->last;
     n->next = NULL;
+    l->last->next = n;
     l->last = n;
   }
   else
@@ -87,11 +88,12 @@ int insert_after(struct list *l, struct node *n, int val)
   if ((m = (struct node *)malloc(sizeof(struct node))) == 0)
     return 0;
   m->val = val;
+  m->prev = n;
   m->next = n->next;
   if (l->last == n)
-    l->last = m;
-  else
     n->next->prev = m;
+  else
+    l->last = m;
   n->next = m;
 
   return 1;
